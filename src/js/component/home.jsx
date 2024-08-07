@@ -1,26 +1,21 @@
 import React from "react";
 
-//include images into your bundle
+// Importa la imagen si la necesitas
 import rigoImage from "../../img/rigo-baby.jpg";
+import { UpButton, DownButton, MidButton } from "./trafficLight.jsx";
 
-//create your first component
+// Crea tu componente principal
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+    return (
+        <>
+            <h1>Semáforo</h1>
+            <div style={{ backgroundColor:'black', width:'70px',margin:'auto',height:'190px', display: "flex",justifyContent:'center',borderRadius:'10%', flexDirection: "column", alignItems: "center", gap: "10px" }}>
+                <UpButton />
+                <MidButton />
+                <DownButton />
+            </div>
+        </>
+    );
 };
 
 export default Home;

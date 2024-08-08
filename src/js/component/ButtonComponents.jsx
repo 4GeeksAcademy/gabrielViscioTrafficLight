@@ -1,5 +1,4 @@
-// ButtonComponents.jsx
-import React from "react";
+import React, { useState } from "react";
 
 const UpButton = ({ backgroundUp, setBackgroundUp, setBackgroundMid, setBackgroundDown }) => (
     <button
@@ -40,4 +39,42 @@ const DownButton = ({ backgroundDown, setBackgroundDown, setBackgroundUp, setBac
     ></button>
 );
 
-export {UpButton, MidButton, DownButton};
+const Instruction = () => (
+    <div className="alert alert-primary" role="alert">
+         ¡Debes clickear el color que quieres que funcione!
+    </div>
+);
+
+function ButtonComponents() {
+    const [backgroundUp, setBackgroundUp] = useState('red');
+    const [backgroundMid, setBackgroundMid] = useState('grey');
+    const [backgroundDown, setBackgroundDown] = useState('grey');
+
+    return (
+        <>
+            <Instruction />
+            <div style={{ backgroundColor: 'black', width: '70px', margin: 'auto', height: '190px', display: "flex", justifyContent: 'center', borderRadius:'10%', flexDirection: "column", alignItems: "center", gap: "10px" }}>
+                <UpButton 
+                    backgroundUp={backgroundUp} 
+                    setBackgroundUp={setBackgroundUp} 
+                    setBackgroundMid={setBackgroundMid} 
+                    setBackgroundDown={setBackgroundDown} 
+                />
+                <MidButton 
+                    backgroundMid={backgroundMid} 
+                    setBackgroundMid={setBackgroundMid} 
+                    setBackgroundUp={setBackgroundUp} 
+                    setBackgroundDown={setBackgroundDown} 
+                />
+                <DownButton 
+                    backgroundDown={backgroundDown} 
+                    setBackgroundDown={setBackgroundDown} 
+                    setBackgroundUp={setBackgroundUp} 
+                    setBackgroundMid={setBackgroundMid} 
+                />
+            </div>
+        </>
+    );
+}
+
+export default ButtonComponents;
